@@ -15,7 +15,8 @@ public class Program
             Console.WriteLine("1. Add a To-Do Item");
             Console.WriteLine("2. Delete To-Do List item of index ");
             Console.WriteLine("3. View To-Do List ");
-            Console.WriteLine("4. Exit");
+            Console.WriteLine("4. Search a To-Do Item");
+            Console.WriteLine("5. Exit");
             Console.Write("Enter your choice: ");
 
             string choice = Console.ReadLine();
@@ -33,11 +34,25 @@ public class Program
                     Console.WriteLine("Item added to the To-Do list.");
                     break;
 
+                case "2":
+                    Console.Write("Enter the index : ");
+                    int index = Convert.ToInt32(Console.ReadLine());
+                    todos.DeleteTodoItem(index);
+                    Console.WriteLine("Item removed from the To-Do list.");
+                    break ;
+
                 case "3":
                     todos.ViewTodoList();
                     break;
-
                 case "4":
+                    Console.Write("Enter the index : ");
+                    int inde = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("The Found To-Do Item is : ");
+                    todos.SearchItem(inde);
+                    
+                    break ;
+
+                case "5":
                     Environment.Exit(0);
                     break;
             }

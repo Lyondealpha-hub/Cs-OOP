@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 public class TodoItem
 {
@@ -80,20 +81,37 @@ public class TodoManager
 	public void ViewTodoList()
 	{
 		
-			if(todoItems.Count == 0)
-			{
-				Console.WriteLine("No To-Do items Found. Please add a To-Do item");
-			}
-			else
-			{
+		if(todoItems.Count == 0)
+		{
+			Console.WriteLine("No To-Do items Found. Please add a To-Do item");
+		}
+		else
+		{
 
 			foreach (var item in todoItems)
 			{
 				Console.WriteLine($"\nList of items below \n {item}");
 			}
 
+		}   
+	}
+
+	//working on this part tomorrow
+
+	public void SearchItem(int uid)
+	{
+		
+		if(uid < 0)
+		{
+			Console.WriteLine("Invalid id. Item not Found...");
 		}
-           
+		else
+		{
+            TodoItem item = todoItems[uid];
+            Console.WriteLine(item);
+        }
+			
+		
 	}
 
 }
