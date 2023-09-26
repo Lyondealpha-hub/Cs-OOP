@@ -107,8 +107,15 @@ public class TodoManager
 		}
 		else
 		{
-            TodoItem item = todoItems[uid];
-            Console.WriteLine(item);
+            try
+			{
+                TodoItem item = todoItems[uid];
+                Console.WriteLine(item);
+            }catch(Exception e)
+			{
+				//will take a look at this tomorrow 
+				Console.WriteLine(e.Message);
+			}
         }
 			
 		
