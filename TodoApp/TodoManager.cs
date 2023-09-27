@@ -99,8 +99,6 @@ public class TodoManager
 		}   
 	}
 
-	//working on this part tomorrow
-
 	public void SearchItem(int uid)
 	{
 		
@@ -116,7 +114,6 @@ public class TodoManager
                 Console.WriteLine($"Item Found is   {item}");
             }catch(Exception e)
 			{
-				//will take a look at this tomorrow 
 				Console.WriteLine(e.Message);
 			}
         }
