@@ -83,15 +83,18 @@ public class TodoManager
 		
 		if(todoItems.Count == 0)
 		{
-			Console.WriteLine("No To-Do items Found. Please add a To-Do item");
+			Console.WriteLine("\nNo To-Do items Found. Please add a To-Do item");
 		}
 		else
 		{
 
 			foreach (var item in todoItems)
 			{
-				Console.WriteLine($"\nList of items below \n {item}");
-			}
+
+				Console.WriteLine("****************************************************************");
+				Console.WriteLine($"\n {item}");
+                Console.WriteLine("****************************************************************");
+            }
 
 		}   
 	}
@@ -103,14 +106,14 @@ public class TodoManager
 		
 		if(uid < 0)
 		{
-			Console.WriteLine("Invalid id. Item not Found...");
+			Console.WriteLine("\nInvalid id. Item not Found...");
 		}
 		else
 		{
             try
 			{
                 TodoItem item = todoItems[uid];
-                Console.WriteLine(item);
+                Console.WriteLine($"Item Found is   {item}");
             }catch(Exception e)
 			{
 				//will take a look at this tomorrow 
@@ -120,5 +123,31 @@ public class TodoManager
 			
 		
 	}
+
+	// there is a bug here, when updating the item is duplicated 
+
+	public void EditTodoItem(int uid, string title, string desc)
+	{
+		// no need for this below cuz the indexer already checks and return an available item no need to check again
+		//int index = todoItems.FindIndex(items => items.get_setUid == uid);
+		try
+		{
+			TodoItem item = todoItems[uid];
+			item.Title = title;
+			item.Description = desc;
+            todoItems.Insert(uid, item);
+        }catch(Exception e)
+		{
+			Console.WriteLine(e.Message);
+		}
+		
+	}
+
+
+	~TodoManager()
+	{
+		Console.WriteLine("Thank you :)");
+	}
+
 
 }
